@@ -17,12 +17,12 @@
 
 package decoder
 
-import "github.com/tsg/gopacket"
+import "github.com/njcx/gopacket_dpdk"
 
 // implement DecodingLayer with support of switching between multiple layers to
 // remember outter layer results
 type multiLayer struct {
-	layers []gopacket.DecodingLayer // all layers must have same type
+	layers []gopacket_dpdk.DecodingLayer // all layers must have same type
 	i      int
 	cnt    int
 }
@@ -35,19 +35,19 @@ func (m *multiLayer) next() {
 	}
 }
 
-func (m *multiLayer) init(layer ...gopacket.DecodingLayer) {
+func (m *multiLayer) init(layer ...gopacket_dpdk.DecodingLayer) {
 	m.layers = layer
 }
 
-func (m *multiLayer) DecodeFromBytes(data []byte, df gopacket.DecodeFeedback) error {
+func (m *multiLayer) DecodeFromBytes(data []byte, df gopacket_dpdk.DecodeFeedback) error {
 	return m.layers[m.i].DecodeFromBytes(data, df)
 }
 
-func (m *multiLayer) CanDecode() gopacket.LayerClass {
+func (m *multiLayer) CanDecode() gopacket_dpdk.LayerClass {
 	return m.layers[m.i].CanDecode()
 }
 
-func (m *multiLayer) NextLayerType() gopacket.LayerType {
+func (m *multiLayer) NextLayerType() gopacket_dpdk.LayerType {
 	return m.layers[m.i].NextLayerType()
 }
 

@@ -20,8 +20,8 @@
 
 // Unit tests and benchmarks for the dns package.
 //
-// The byte array test data was generated from pcap files using the gopacket
-// test_creator.py script contained in the gopacket repository. The script was
+// The byte array test data was generated from pcap files using the gopacket_dpdk
+// test_creator.py script contained in the gopacket_dpdk repository. The script was
 // modified to drop the Ethernet, IP, and UDP headers from the byte arrays
 // (skip the first 42 bytes).
 //

@@ -28,9 +28,9 @@ import (
 
 	"github.com/elastic/beats/v7/libbeat/logp"
 
-	"github.com/tsg/gopacket"
-	"github.com/tsg/gopacket/afpacket"
-	"github.com/tsg/gopacket/layers"
+	"github.com/njcx/gopacket_dpdk"
+	"github.com/njcx/gopacket_dpdk/afpacket"
+	"github.com/njcx/gopacket_dpdk/layers"
 )
 
 type afpacketHandle struct {
@@ -83,7 +83,7 @@ func newAfpacketHandle(device string, snaplen int, block_size int, num_blocks in
 	return h, err
 }
 
-func (h *afpacketHandle) ReadPacketData() (data []byte, ci gopacket.CaptureInfo, err error) {
+func (h *afpacketHandle) ReadPacketData() (data []byte, ci gopacket_dpdk.CaptureInfo, err error) {
 	return h.TPacket.ReadPacketData()
 }
 

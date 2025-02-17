@@ -32,8 +32,8 @@ import (
 	"github.com/elastic/beats/v7/packetbeat/procs"
 	"github.com/elastic/beats/v7/packetbeat/protos"
 
-	"github.com/tsg/gopacket"
-	"github.com/tsg/gopacket/layers"
+	"github.com/njcx/gopacket_dpdk"
+	"github.com/njcx/gopacket_dpdk/layers"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -89,7 +89,7 @@ func createICMPv4Layer(b *testing.B, hexstr string) *layers.ICMPv4 {
 		return nil
 	}
 
-	var df gopacket.DecodeFeedback
+	var df gopacket_dpdk.DecodeFeedback
 	var icmp4 layers.ICMPv4
 	err = icmp4.DecodeFromBytes(data, df)
 	if err != nil {

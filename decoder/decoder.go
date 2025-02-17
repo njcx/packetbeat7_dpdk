@@ -27,16 +27,16 @@ import (
 	"github.com/elastic/beats/v7/packetbeat/protos/tcp"
 	"github.com/elastic/beats/v7/packetbeat/protos/udp"
 
-	"github.com/tsg/gopacket"
-	"github.com/tsg/gopacket/layers"
+	"github.com/njcx/gopacket_dpdk"
+	"github.com/njcx/gopacket_dpdk/layers"
 )
 
 var debugf = logp.MakeDebug("decoder")
 
 type Decoder struct {
-	decoders         map[gopacket.LayerType]gopacket.DecodingLayer
-	linkLayerDecoder gopacket.DecodingLayer
-	linkLayerType    gopacket.LayerType
+	decoders         map[gopacket_dpdk.LayerType]gopacket_dpdk.DecodingLayer
+	linkLayerDecoder gopacket_dpdk.DecodingLayer
+	linkLayerType    gopacket_dpdk.LayerType
 
 	sll       layers.LinuxSLL
 	lo        layers.Loopback
@@ -86,7 +86,7 @@ func New(
 ) (*Decoder, error) {
 	d := Decoder{
 		flows:     f,
-		decoders:  make(map[gopacket.LayerType]gopacket.DecodingLayer),
+		decoders:  make(map[gopacket_dpdk.LayerType]gopacket_dpdk.DecodingLayer),
 		icmp4Proc: icmp4, icmp6Proc: icmp6, tcpProc: tcp, udpProc: udp}
 	d.stD1Q.init(&d.d1q[0], &d.d1q[1])
 	d.stIP4.init(&d.ip4[0], &d.ip4[1])
@@ -114,7 +114,7 @@ func New(
 		d.flowID = &flows.FlowID{}
 	}
 
-	defaultLayerTypes := []gopacket.DecodingLayer{
+	defaultLayerTypes := []gopacket_dpdk.DecodingLayer{
 		&d.sll,             // LinuxSLL
 		&d.eth,             // Ethernet
 		&d.lo,              // loopback on OS X
@@ -148,19 +148,19 @@ func (d *Decoder) SetTruncated() {
 	d.truncated = true
 }
 
-func (d *Decoder) AddLayer(layer gopacket.DecodingLayer) {
+func (d *Decoder) AddLayer(layer gopacket_dpdk.DecodingLayer) {
 	for _, typ := range layer.CanDecode().LayerTypes() {
 		d.decoders[typ] = layer
 	}
 }
 
-func (d *Decoder) AddLayers(layers []gopacket.DecodingLayer) {
+func (d *Decoder) AddLayers(layers []gopacket_dpdk.DecodingLayer) {
 	for _, layer := range layers {
 		d.AddLayer(layer)
 	}
 }
 
-func (d *Decoder) OnPacket(data []byte, ci *gopacket.CaptureInfo) {
+func (d *Decoder) OnPacket(data []byte, ci *gopacket_dpdk.CaptureInfo) {
 	defer logp.Recover("packet decoding failed")
 
 	d.truncated = false
@@ -225,7 +225,7 @@ func (d *Decoder) OnPacket(data []byte, ci *gopacket.CaptureInfo) {
 
 func (d *Decoder) process(
 	packet *protos.Packet,
-	layerType gopacket.LayerType,
+	layerType gopacket_dpdk.LayerType,
 ) (bool, error) {
 	withFlow := d.flowID != nil
 

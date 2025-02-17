@@ -30,8 +30,8 @@ import (
 	"github.com/elastic/beats/v7/packetbeat/procs"
 	"github.com/elastic/beats/v7/packetbeat/protos"
 
+	"github.com/njcx/gopacket_dpdk/layers"
 	"github.com/stretchr/testify/assert"
-	"github.com/tsg/gopacket/layers"
 )
 
 // Test Constants

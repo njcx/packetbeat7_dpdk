@@ -32,7 +32,7 @@ func afpacketComputeSize(targetSizeMb int, snaplen int, pageSize int) (
 		frameSize = (snaplen/pageSize + 1) * pageSize
 	}
 
-	// 128 is the default from the gopacket library so just use that
+	// 128 is the default from the gopacket_dpdk library so just use that
 	blockSize = frameSize * 128
 	numBlocks = (targetSizeMb * 1024 * 1024) / blockSize
 

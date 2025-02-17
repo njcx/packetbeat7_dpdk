@@ -25,9 +25,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/tsg/gopacket"
-	"github.com/tsg/gopacket/layers"
-	"github.com/tsg/gopacket/pcap"
+	"github.com/njcx/gopacket_dpdk"
+	"github.com/njcx/gopacket_dpdk/dpdk"
+	"github.com/njcx/gopacket_dpdk/layers"
+	"github.com/njcx/gopacket_dpdk/pcap"
 
 	"github.com/elastic/beats/v7/libbeat/common/atomic"
 	"github.com/elastic/beats/v7/libbeat/logp"
@@ -55,11 +56,11 @@ type WorkerFactory func(layers.LinkType) (Worker, error)
 // Worker defines the callback interfaces a Sniffer instance will use
 // to forward packets.
 type Worker interface {
-	OnPacket(data []byte, ci *gopacket.CaptureInfo)
+	OnPacket(data []byte, ci *gopacket_dpdk.CaptureInfo)
 }
 
 type snifferHandle interface {
-	gopacket.PacketDataSource
+	gopacket_dpdk.PacketDataSource
 
 	LinkType() layers.LinkType
 	Close()
@@ -223,6 +224,8 @@ func (s *Sniffer) open() (snifferHandle, error) {
 		return openPcap(s.filter, &s.config)
 	case "af_packet":
 		return openAFPacket(s.filter, &s.config)
+	case "dpdk":
+		return openDpdk(s.filter, &s.config)
 	default:
 		return nil, fmt.Errorf("Unknown sniffer type: %s", s.config.Type)
 	}
@@ -247,12 +250,19 @@ func validateConfig(filter string, cfg *config.InterfacesConfig) error {
 		return validatePcapConfig(cfg)
 	case "af_packet":
 		return validateAfPacketConfig(cfg)
+	case "dpdk":
+		return validateDpdkConfig(cfg)
+
 	default:
 		return fmt.Errorf("Unknown sniffer type: %s", cfg.Type)
 	}
 }
 
 func validatePcapConfig(cfg *config.InterfacesConfig) error {
+	return nil
+}
+
+func validateDpdkConfig(cfg *config.InterfacesConfig) error {
 	return nil
 }
 
@@ -311,6 +321,23 @@ func openAFPacket(filter string, cfg *config.InterfacesConfig) (snifferHandle, e
 	}
 
 	err = h.SetBPFFilter(filter)
+	if err != nil {
+		h.Close()
+		return nil, err
+	}
+
+	return h, nil
+}
+
+func openDpdk(filter string, cfg *config.InterfacesConfig) (snifferHandle, error) {
+
+	err := dpdk.InitDPDK()
+	if err != nil {
+		return nil, err
+	}
+
+	h, err := dpdk.NewDPDKHandle(cfg.Device, filter)
+
 	if err != nil {
 		h.Close()
 		return nil, err

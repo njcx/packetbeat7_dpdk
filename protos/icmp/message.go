@@ -21,12 +21,12 @@ import (
 	"encoding/binary"
 	"time"
 
-	"github.com/tsg/gopacket/layers"
+	"github.com/njcx/gopacket_dpdk/layers"
 
 	"github.com/elastic/beats/v7/libbeat/logp"
 )
 
-// TODO: more types (that are not provided as constants in gopacket)
+// TODO: more types (that are not provided as constants in gopacket_dpdk)
 
 // ICMPv4 types that represent a response (all other types represent a request)
 var icmp4ResponseTypes = map[uint8]bool{

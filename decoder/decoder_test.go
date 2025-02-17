@@ -28,9 +28,9 @@ import (
 	"github.com/elastic/beats/v7/packetbeat/flows"
 	"github.com/elastic/beats/v7/packetbeat/protos"
 
+	"github.com/njcx/gopacket_dpdk"
+	"github.com/njcx/gopacket_dpdk/layers"
 	"github.com/stretchr/testify/assert"
-	"github.com/tsg/gopacket"
-	"github.com/tsg/gopacket/layers"
 )
 
 type TestIcmp4Processor struct {
@@ -85,7 +85,7 @@ var ipv4TcpDNS = []byte{
 func TestDecodePacketData_ipv4Tcp(t *testing.T) {
 	logp.TestingSetup(logp.WithSelectors("decoder"))
 
-	p := gopacket.NewPacket(ipv4TcpDNS, layers.LinkTypeEthernet, gopacket.Default)
+	p := gopacket_dpdk.NewPacket(ipv4TcpDNS, layers.LinkTypeEthernet, gopacket_dpdk.Default)
 	if p.ErrorLayer() != nil {
 		t.Error("Failed to decode packet:", p.ErrorLayer().Error())
 	}
@@ -111,7 +111,7 @@ var ipv4UdpDNS = []byte{
 
 // Test that DecodePacket decodes and IPv4/UDP packet and invokes the UDP processor.
 func TestDecodePacketData_ipv4Udp(t *testing.T) {
-	p := gopacket.NewPacket(ipv4UdpDNS, layers.LinkTypeEthernet, gopacket.Default)
+	p := gopacket_dpdk.NewPacket(ipv4UdpDNS, layers.LinkTypeEthernet, gopacket_dpdk.Default)
 	if p.ErrorLayer() != nil {
 		t.Error("Failed to decode packet:", p.ErrorLayer().Error())
 	}
@@ -152,7 +152,7 @@ var ipv6TcpHTTPGet = []byte{
 
 // Test that DecodePacket decodes and IPv6/TCP packet and invokes the TCP processor.
 func TestDecodePacketData_ipv6Tcp(t *testing.T) {
-	p := gopacket.NewPacket(ipv6TcpHTTPGet, layers.LinkTypeEthernet, gopacket.Default)
+	p := gopacket_dpdk.NewPacket(ipv6TcpHTTPGet, layers.LinkTypeEthernet, gopacket_dpdk.Default)
 	if p.ErrorLayer() != nil {
 		t.Error("Failed to decode packet: ", p.ErrorLayer().Error())
 	}
@@ -183,7 +183,7 @@ var ipv6UdpDNS = []byte{
 
 // Test that DecodePacket decodes and IPv6/UDP packet and invokes the UDP processor.
 func TestDecodePacketData_ipv6Udp(t *testing.T) {
-	p := gopacket.NewPacket(ipv6UdpDNS, layers.LinkTypeEthernet, gopacket.Default)
+	p := gopacket_dpdk.NewPacket(ipv6UdpDNS, layers.LinkTypeEthernet, gopacket_dpdk.Default)
 	if p.ErrorLayer() != nil {
 		t.Error("Failed to decode packet:", p.ErrorLayer().Error())
 	}

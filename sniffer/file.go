@@ -22,9 +22,9 @@ import (
 	"io"
 	"time"
 
-	"github.com/tsg/gopacket"
-	"github.com/tsg/gopacket/layers"
-	"github.com/tsg/gopacket/pcap"
+	"github.com/njcx/gopacket_dpdk"
+	"github.com/njcx/gopacket_dpdk/layers"
+	"github.com/njcx/gopacket_dpdk/pcap"
 
 	"github.com/elastic/beats/v7/libbeat/logp"
 )
@@ -62,7 +62,7 @@ func (h *fileHandler) open() error {
 	return nil
 }
 
-func (h *fileHandler) ReadPacketData() ([]byte, gopacket.CaptureInfo, error) {
+func (h *fileHandler) ReadPacketData() ([]byte, gopacket_dpdk.CaptureInfo, error) {
 	data, ci, err := h.pcapHandle.ReadPacketData()
 	if err != nil {
 		if err != io.EOF {

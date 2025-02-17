@@ -22,7 +22,7 @@ import (
 	"runtime"
 	"strconv"
 
-	"github.com/tsg/gopacket/pcap"
+	"github.com/njcx/gopacket_dpdk/pcap"
 
 	"github.com/elastic/beats/v7/libbeat/logp"
 )
