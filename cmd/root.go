@@ -22,10 +22,10 @@ import (
 
 	"github.com/spf13/pflag"
 
-	cmd "github.com/elastic/beats/v7/libbeat/cmd"
-	"github.com/elastic/beats/v7/libbeat/cmd/instance"
-	"github.com/elastic/beats/v7/libbeat/common"
-	"github.com/elastic/beats/v7/libbeat/publisher/processing"
+	cmd "github.com/njcx/libbeat_v7/cmd"
+	"github.com/njcx/libbeat_v7/cmd/instance"
+	"github.com/njcx/libbeat_v7/common"
+	"github.com/njcx/libbeat_v7/publisher/processing"
 	"github.com/njcx/packetbeat7_dpdk/beater"
 
 	// Register fields and protocol modules.

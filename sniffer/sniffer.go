@@ -30,8 +30,8 @@ import (
 	"github.com/njcx/gopacket_dpdk/layers"
 	"github.com/njcx/gopacket_dpdk/pcap"
 
-	"github.com/elastic/beats/v7/libbeat/common/atomic"
-	"github.com/elastic/beats/v7/libbeat/logp"
+	"github.com/njcx/libbeat_v7/common/atomic"
+	"github.com/njcx/libbeat_v7/logp"
 
 	"github.com/njcx/packetbeat7_dpdk/config"
 )

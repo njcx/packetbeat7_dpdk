@@ -26,7 +26,7 @@ import (
 
 	"github.com/insomniacslk/dhcp/dhcpv4"
 
-	"github.com/elastic/beats/v7/libbeat/common"
+	"github.com/njcx/libbeat_v7/common"
 )
 
 func optionsToMap(options []dhcpv4.Option) (common.MapStr, error) {

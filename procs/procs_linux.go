@@ -33,9 +33,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/elastic/beats/v7/libbeat/logp"
 	"github.com/elastic/go-sysinfo/types"
 	"github.com/elastic/gosigar"
+	"github.com/njcx/libbeat_v7/logp"
 	"github.com/njcx/packetbeat7_dpdk/protos/applayer"
 )
 

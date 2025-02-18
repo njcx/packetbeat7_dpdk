@@ -29,11 +29,11 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/elastic/beats/v7/libbeat/beat"
-	"github.com/elastic/beats/v7/libbeat/common"
-	"github.com/elastic/beats/v7/libbeat/logp"
-	"github.com/elastic/beats/v7/libbeat/monitoring"
 	"github.com/elastic/ecs/code/go/ecs"
+	"github.com/njcx/libbeat_v7/beat"
+	"github.com/njcx/libbeat_v7/common"
+	"github.com/njcx/libbeat_v7/logp"
+	"github.com/njcx/libbeat_v7/monitoring"
 	"github.com/njcx/packetbeat7_dpdk/pb"
 	"github.com/njcx/packetbeat7_dpdk/procs"
 	"github.com/njcx/packetbeat7_dpdk/protos"

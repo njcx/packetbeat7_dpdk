@@ -23,8 +23,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/elastic/beats/v7/libbeat/common"
-	"github.com/elastic/beats/v7/libbeat/monitoring"
+	"github.com/njcx/libbeat_v7/common"
+	"github.com/njcx/libbeat_v7/monitoring"
 
 	"github.com/njcx/packetbeat7_dpdk/pb"
 	"github.com/njcx/packetbeat7_dpdk/protos/tcp"

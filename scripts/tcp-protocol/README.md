@@ -132,7 +132,7 @@ package main
 import (
 	"os"
 
-	"github.com/elastic/beats/v7/libbeat/beat"
+	"github.com/njcx/libbeat_v7/beat"
 	"github.com/njcx/packetbeat7_dpdk/beater"
 
 	// import supported protocol modules

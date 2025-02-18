@@ -23,9 +23,9 @@ import (
 	"net"
 	"time"
 
-	"github.com/elastic/beats/v7/libbeat/beat"
-	"github.com/elastic/beats/v7/libbeat/common"
-	"github.com/elastic/beats/v7/libbeat/common/flowhash"
+	"github.com/njcx/libbeat_v7/beat"
+	"github.com/njcx/libbeat_v7/common"
+	"github.com/njcx/libbeat_v7/common/flowhash"
 	"github.com/njcx/packetbeat7_dpdk/procs"
 	"github.com/njcx/packetbeat7_dpdk/protos/applayer"
 )

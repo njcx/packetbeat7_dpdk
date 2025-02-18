@@ -25,8 +25,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/elastic/beats/v7/libbeat/common"
 	"github.com/elastic/ecs/code/go/ecs"
+	"github.com/njcx/libbeat_v7/common"
 )
 
 func TestMarshalMapStr(t *testing.T) {

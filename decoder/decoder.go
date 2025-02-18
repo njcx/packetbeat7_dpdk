@@ -20,7 +20,7 @@ package decoder
 import (
 	"fmt"
 
-	"github.com/elastic/beats/v7/libbeat/logp"
+	"github.com/njcx/libbeat_v7/logp"
 	"github.com/njcx/packetbeat7_dpdk/flows"
 	"github.com/njcx/packetbeat7_dpdk/protos"
 	"github.com/njcx/packetbeat7_dpdk/protos/icmp"
