@@ -18,13 +18,13 @@
 package procs
 
 import (
-	"net"
-	"strings"
-	"time"
-
+	"github.com/elastic/go-sysinfo"
 	"github.com/njcx/libbeat_v7/common"
 	"github.com/njcx/libbeat_v7/logp"
 	"github.com/njcx/packetbeat7_dpdk/protos/applayer"
+	"net"
+	"strings"
+	"time"
 )
 
 // This controls how often process info for a running process is reloaded
