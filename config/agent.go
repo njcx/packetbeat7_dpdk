@@ -19,11 +19,11 @@ package config
 
 import (
 	"fmt"
-	"runtime"
-
+	"github.com/elastic/go-ucfg"
 	"github.com/njcx/libbeat_v7/common"
 	"github.com/njcx/libbeat_v7/logp"
 	"github.com/njcx/packetbeat7_dpdk/procs"
+	"runtime"
 )
 
 type datastream struct {
