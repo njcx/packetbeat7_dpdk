@@ -27,6 +27,7 @@ import (
 	"time"
 
 	"github.com/njcx/libbeat_v7/logp"
+	"gopkg.in/inf.v0"
 )
 
 // TypeInfo describes a Cassandra specific data type.
