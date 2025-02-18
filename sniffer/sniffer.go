@@ -22,6 +22,7 @@ import (
 	"io"
 	"os"
 	"runtime"
+	"strconv"
 	"syscall"
 	"time"
 
@@ -336,7 +337,10 @@ func openDpdk(filter string, cfg *config.InterfacesConfig) (snifferHandle, error
 		return nil, err
 	}
 
-	h, err := dpdk.NewDPDKHandle(cfg.Device, filter)
+	num16, _ := strconv.ParseUint(cfg.Device, 10, 16)
+	port := uint16(num16)
+
+	h, err := dpdk.NewDPDKHandle(port, filter)
 
 	if err != nil {
 		h.Close()
