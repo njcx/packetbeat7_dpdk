@@ -27,8 +27,8 @@ import (
 	"github.com/elastic/beats/v7/libbeat/common/streambuf"
 	"github.com/elastic/beats/v7/libbeat/logp"
 
-	"github.com/elastic/beats/v7/packetbeat/protos"
-	"github.com/elastic/beats/v7/packetbeat/protos/applayer"
+	"github.com/njcx/packetbeat7_dpdk/protos"
+	"github.com/njcx/packetbeat7_dpdk/protos/applayer"
 )
 
 type udpMemcache struct {

@@ -23,9 +23,9 @@ import (
 
 	"github.com/elastic/beats/v7/libbeat/common/streambuf"
 	"github.com/elastic/beats/v7/libbeat/logp"
-	"github.com/elastic/beats/v7/packetbeat/protos/applayer"
+	"github.com/njcx/packetbeat7_dpdk/protos/applayer"
 
-	gocql "github.com/elastic/beats/v7/packetbeat/protos/cassandra/internal/gocql"
+	gocql "github.com/njcx/packetbeat7_dpdk/protos/cassandra/internal/gocql"
 )
 
 type parser struct {

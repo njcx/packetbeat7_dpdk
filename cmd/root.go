@@ -26,10 +26,10 @@ import (
 	"github.com/elastic/beats/v7/libbeat/cmd/instance"
 	"github.com/elastic/beats/v7/libbeat/common"
 	"github.com/elastic/beats/v7/libbeat/publisher/processing"
-	"github.com/elastic/beats/v7/packetbeat/beater"
+	"github.com/njcx/packetbeat7_dpdk/beater"
 
 	// Register fields and protocol modules.
-	_ "github.com/elastic/beats/v7/packetbeat/include"
+	_ "github.com/njcx/packetbeat7_dpdk/include"
 )
 
 const (

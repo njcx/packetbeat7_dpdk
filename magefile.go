@@ -27,7 +27,7 @@ import (
 	"github.com/magefile/mage/mg"
 
 	devtools "github.com/elastic/beats/v7/dev-tools/mage"
-	packetbeat "github.com/elastic/beats/v7/packetbeat/scripts/mage"
+	packetbeat "github.com/njcx/packetbeat7_dpdk/scripts/mage"
 
 	// mage:import
 	"github.com/elastic/beats/v7/dev-tools/mage/target/common"

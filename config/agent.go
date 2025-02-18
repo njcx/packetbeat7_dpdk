@@ -23,8 +23,7 @@ import (
 
 	"github.com/elastic/beats/v7/libbeat/common"
 	"github.com/elastic/beats/v7/libbeat/logp"
-	"github.com/elastic/beats/v7/packetbeat/procs"
-	"github.com/elastic/go-ucfg"
+	"github.com/njcx/packetbeat7_dpdk/procs"
 )
 
 type datastream struct {

@@ -23,8 +23,8 @@ import (
 	"github.com/elastic/beats/v7/libbeat/beat"
 	"github.com/elastic/beats/v7/libbeat/common"
 
-	"github.com/elastic/beats/v7/packetbeat/pb"
-	"github.com/elastic/beats/v7/packetbeat/protos"
+	"github.com/njcx/packetbeat7_dpdk/pb"
+	"github.com/njcx/packetbeat7_dpdk/protos"
 )
 
 // Transaction Publisher.

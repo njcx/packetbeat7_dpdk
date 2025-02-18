@@ -28,11 +28,11 @@ import (
 	"github.com/elastic/beats/v7/libbeat/management"
 	"github.com/elastic/beats/v7/libbeat/service"
 
-	"github.com/elastic/beats/v7/packetbeat/config"
-	"github.com/elastic/beats/v7/packetbeat/protos"
+	"github.com/njcx/packetbeat7_dpdk/config"
+	"github.com/njcx/packetbeat7_dpdk/protos"
 
 	// Add packetbeat default processors
-	_ "github.com/elastic/beats/v7/packetbeat/processor/add_kubernetes_metadata"
+	_ "github.com/njcx/packetbeat7_dpdk/processor/add_kubernetes_metadata"
 )
 
 // this is mainly a limitation to ensure that we never deadlock

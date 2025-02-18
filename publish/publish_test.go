@@ -29,8 +29,8 @@ import (
 
 	"github.com/elastic/beats/v7/libbeat/beat"
 	"github.com/elastic/beats/v7/libbeat/common"
-	"github.com/elastic/beats/v7/packetbeat/pb"
 	"github.com/elastic/ecs/code/go/ecs"
+	"github.com/njcx/packetbeat7_dpdk/pb"
 )
 
 func testEvent() beat.Event {

@@ -26,7 +26,7 @@ import (
 	"github.com/elastic/beats/v7/libbeat/common"
 	"github.com/elastic/beats/v7/libbeat/logp"
 	"github.com/elastic/beats/v7/libbeat/processors"
-	"github.com/elastic/beats/v7/packetbeat/pb"
+	"github.com/njcx/packetbeat7_dpdk/pb"
 )
 
 type TransactionPublisher struct {

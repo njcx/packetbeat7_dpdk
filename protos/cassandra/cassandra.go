@@ -23,11 +23,11 @@ import (
 	"github.com/elastic/beats/v7/libbeat/common"
 	"github.com/elastic/beats/v7/libbeat/logp"
 
-	"github.com/elastic/beats/v7/packetbeat/procs"
-	"github.com/elastic/beats/v7/packetbeat/protos"
-	"github.com/elastic/beats/v7/packetbeat/protos/tcp"
+	"github.com/njcx/packetbeat7_dpdk/procs"
+	"github.com/njcx/packetbeat7_dpdk/protos"
+	"github.com/njcx/packetbeat7_dpdk/protos/tcp"
 
-	gocql "github.com/elastic/beats/v7/packetbeat/protos/cassandra/internal/gocql"
+	gocql "github.com/njcx/packetbeat7_dpdk/protos/cassandra/internal/gocql"
 )
 
 // cassandra application level protocol analyzer plugin

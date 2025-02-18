@@ -23,8 +23,8 @@ import (
 	"github.com/elastic/beats/v7/libbeat/common"
 	"github.com/elastic/beats/v7/libbeat/logp"
 
-	"github.com/elastic/beats/v7/packetbeat/protos"
-	"github.com/elastic/beats/v7/packetbeat/protos/tcp"
+	"github.com/njcx/packetbeat7_dpdk/protos"
+	"github.com/njcx/packetbeat7_dpdk/protos/tcp"
 
 	mkdns "github.com/miekg/dns"
 )

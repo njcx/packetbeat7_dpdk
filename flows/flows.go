@@ -22,8 +22,8 @@ import (
 
 	"github.com/elastic/beats/v7/libbeat/beat"
 	"github.com/elastic/beats/v7/libbeat/logp"
-	"github.com/elastic/beats/v7/packetbeat/config"
-	"github.com/elastic/beats/v7/packetbeat/procs"
+	"github.com/njcx/packetbeat7_dpdk/config"
+	"github.com/njcx/packetbeat7_dpdk/procs"
 )
 
 type Flows struct {

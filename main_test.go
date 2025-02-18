@@ -24,7 +24,7 @@ import (
 	"testing"
 
 	"github.com/elastic/beats/v7/libbeat/tests/system/template"
-	"github.com/elastic/beats/v7/packetbeat/cmd"
+	"github.com/njcx/packetbeat7_dpdk/cmd"
 )
 
 var systemTest *bool

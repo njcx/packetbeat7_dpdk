@@ -22,8 +22,8 @@ import (
 
 	"github.com/elastic/beats/v7/libbeat/common"
 	"github.com/elastic/beats/v7/libbeat/logp"
-	"github.com/elastic/beats/v7/packetbeat/procs"
-	"github.com/elastic/beats/v7/packetbeat/protos/applayer"
+	"github.com/njcx/packetbeat7_dpdk/procs"
+	"github.com/njcx/packetbeat7_dpdk/protos/applayer"
 )
 
 type transactions struct {

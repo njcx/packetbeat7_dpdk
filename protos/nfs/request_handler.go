@@ -26,8 +26,8 @@ import (
 	"github.com/elastic/beats/v7/libbeat/common"
 	"github.com/elastic/beats/v7/libbeat/monitoring"
 
-	"github.com/elastic/beats/v7/packetbeat/pb"
-	"github.com/elastic/beats/v7/packetbeat/protos/tcp"
+	"github.com/njcx/packetbeat7_dpdk/pb"
+	"github.com/njcx/packetbeat7_dpdk/protos/tcp"
 )
 
 const nfsProgramNumber = 100003

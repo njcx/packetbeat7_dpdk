@@ -20,16 +20,16 @@ package beater
 import (
 	"github.com/njcx/gopacket_dpdk/layers"
 
-	"github.com/elastic/beats/v7/packetbeat/config"
-	"github.com/elastic/beats/v7/packetbeat/decoder"
-	"github.com/elastic/beats/v7/packetbeat/flows"
-	"github.com/elastic/beats/v7/packetbeat/procs"
-	"github.com/elastic/beats/v7/packetbeat/protos"
-	"github.com/elastic/beats/v7/packetbeat/protos/icmp"
-	"github.com/elastic/beats/v7/packetbeat/protos/tcp"
-	"github.com/elastic/beats/v7/packetbeat/protos/udp"
-	"github.com/elastic/beats/v7/packetbeat/publish"
-	"github.com/elastic/beats/v7/packetbeat/sniffer"
+	"github.com/njcx/packetbeat7_dpdk/config"
+	"github.com/njcx/packetbeat7_dpdk/decoder"
+	"github.com/njcx/packetbeat7_dpdk/flows"
+	"github.com/njcx/packetbeat7_dpdk/procs"
+	"github.com/njcx/packetbeat7_dpdk/protos"
+	"github.com/njcx/packetbeat7_dpdk/protos/icmp"
+	"github.com/njcx/packetbeat7_dpdk/protos/tcp"
+	"github.com/njcx/packetbeat7_dpdk/protos/udp"
+	"github.com/njcx/packetbeat7_dpdk/publish"
+	"github.com/njcx/packetbeat7_dpdk/sniffer"
 )
 
 func workerFactory(publisher *publish.TransactionPublisher, protocols *protos.ProtocolsStruct, watcher procs.ProcessesWatcher, flows *flows.Flows, cfg config.Config) func(dl layers.LinkType) (sniffer.Worker, error) {

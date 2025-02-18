@@ -21,8 +21,8 @@
 package procs
 
 import (
-	"github.com/elastic/beats/v7/packetbeat/protos/applayer"
 	"github.com/elastic/go-sysinfo/types"
+	"github.com/njcx/packetbeat7_dpdk/protos/applayer"
 )
 
 // procName returns the name for the process.

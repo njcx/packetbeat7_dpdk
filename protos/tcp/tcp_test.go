@@ -27,8 +27,8 @@ import (
 	"time"
 
 	"github.com/elastic/beats/v7/libbeat/common"
-	"github.com/elastic/beats/v7/packetbeat/procs"
-	"github.com/elastic/beats/v7/packetbeat/protos"
+	"github.com/njcx/packetbeat7_dpdk/procs"
+	"github.com/njcx/packetbeat7_dpdk/protos"
 
 	"github.com/njcx/gopacket_dpdk/layers"
 	"github.com/stretchr/testify/assert"

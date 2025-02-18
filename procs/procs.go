@@ -24,8 +24,7 @@ import (
 
 	"github.com/elastic/beats/v7/libbeat/common"
 	"github.com/elastic/beats/v7/libbeat/logp"
-	"github.com/elastic/beats/v7/packetbeat/protos/applayer"
-	"github.com/elastic/go-sysinfo"
+	"github.com/njcx/packetbeat7_dpdk/protos/applayer"
 )
 
 // This controls how often process info for a running process is reloaded

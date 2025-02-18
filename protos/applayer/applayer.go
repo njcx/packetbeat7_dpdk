@@ -27,7 +27,7 @@ import (
 	"github.com/elastic/beats/v7/libbeat/common"
 	"github.com/elastic/beats/v7/libbeat/common/streambuf"
 
-	"github.com/elastic/beats/v7/packetbeat/pb"
+	"github.com/njcx/packetbeat7_dpdk/pb"
 )
 
 // A Message its direction indicator

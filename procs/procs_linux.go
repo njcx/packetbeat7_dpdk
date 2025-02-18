@@ -34,9 +34,9 @@ import (
 	"sync"
 
 	"github.com/elastic/beats/v7/libbeat/logp"
-	"github.com/elastic/beats/v7/packetbeat/protos/applayer"
 	"github.com/elastic/go-sysinfo/types"
 	"github.com/elastic/gosigar"
+	"github.com/njcx/packetbeat7_dpdk/protos/applayer"
 )
 
 // procName makes a best effort attempt to get a good name for the process. It
