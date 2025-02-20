@@ -12,7 +12,7 @@ require (
         github.com/insomniacslk/dhcp v0.0.0-20180716145214-633285ba52b2
         github.com/magefile/mage v1.15.0
         github.com/miekg/dns v1.1.63
-        github.com/njcx/gopacket_dpdk v0.0.0-20250217093055-cac11ccca30f
+        github.com/njcx/gopacket_dpdk v0.0.0-20250220090539-4cfcd59a460f
         github.com/njcx/libbeat_v7 v0.0.0-20250218105906-116c1e8e4b62
         github.com/njcx/packetbeat7_dpdk v0.0.0-20250218073859-828275f738f3
         github.com/pkg/errors v0.9.1

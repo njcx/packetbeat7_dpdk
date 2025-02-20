@@ -332,7 +332,7 @@ func openAFPacket(filter string, cfg *config.InterfacesConfig) (snifferHandle, e
 
 func openDpdk(filter string, cfg *config.InterfacesConfig) (snifferHandle, error) {
 
-	err := dpdk.InitDPDK()
+	err := dpdk.InitDPDK(cfg.DpdkOptions)
 	if err != nil {
 		return nil, err
 	}
