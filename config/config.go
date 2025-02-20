@@ -84,7 +84,7 @@ type InterfacesConfig struct {
 	BufferSizeMb          int      `config:"buffer_size_mb"`
 	EnableAutoPromiscMode bool     `config:"auto_promisc_mode"`
 	InternalNetworks      []string `config:"internal_networks"`
-	DpdkOptions           []string `config:"internal_networks"`
+	DpdkOptions           []string `config:"dpdk_options"`
 	TopSpeed              bool
 	Dumpfile              string
 	OneAtATime            bool
