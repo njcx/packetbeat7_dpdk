@@ -1,4 +1,4 @@
-module packetbeat7_dpdk
+module github.com/njcx/packetbeat7_dpdk
 
 go 1.23.6
 
