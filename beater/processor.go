@@ -19,6 +19,8 @@ package beater
 
 import (
 	"fmt"
+	"github.com/njcx/packetbeat7_dpdk/threat"
+	"runtime"
 	"sync"
 	"time"
 
@@ -43,15 +45,18 @@ type processor struct {
 	sniffer         *sniffer.Sniffer
 	shutdownTimeout time.Duration
 	err             chan error
+
+	isDPDKMode bool
 }
 
-func newProcessor(shutdownTimeout time.Duration, publisher *publish.TransactionPublisher, flows *flows.Flows, sniffer *sniffer.Sniffer, err chan error) *processor {
+func newProcessor(shutdownTimeout time.Duration, publisher *publish.TransactionPublisher, flows *flows.Flows, sniffer *sniffer.Sniffer, err chan error, isDPDKMode bool) *processor {
 	return &processor{
 		publisher:       publisher,
 		flows:           flows,
 		sniffer:         sniffer,
 		err:             err,
 		shutdownTimeout: shutdownTimeout,
+		isDPDKMode:      isDPDKMode,
 	}
 }
 
@@ -59,7 +64,38 @@ func (p *processor) String() string {
 	return "packetbeat.processor"
 }
 
+func (p *processor) startWithDPDK() {
+	runtime.LockOSThread()
+
+	if p.flows != nil {
+		p.flows.Start()
+	}
+
+	p.wg.Add(1)
+	go func() {
+		defer p.wg.Done()
+
+		err := threat.ExecuteInMainThread(func() error {
+			return p.sniffer.Run()
+		})
+
+		if err != nil {
+			p.err <- fmt.Errorf("sniffer loop failed: %v", err)
+			return
+		}
+		p.err <- nil
+	}()
+}
+
 func (p *processor) Start() {
+	if p.isDPDKMode {
+		p.startWithDPDK()
+	} else {
+		p.start()
+	}
+}
+
+func (p *processor) start() {
 	if p.flows != nil {
 		p.flows.Start()
 	}
@@ -151,7 +187,9 @@ func (p *processorFactory) Create(pipeline beat.PipelineConnector, cfg *common.C
 		return nil, err
 	}
 
-	return newProcessor(config.ShutdownTimeout, publisher, flows, sniffer, p.err), nil
+	isDPDKMode := config.Interfaces.Type == "dpdk"
+
+	return newProcessor(config.ShutdownTimeout, publisher, flows, sniffer, p.err, isDPDKMode), nil
 }
 
 func (p *processorFactory) CheckConfig(config *common.Config) error {

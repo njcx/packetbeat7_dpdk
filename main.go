@@ -18,15 +18,18 @@
 package main
 
 import (
-	"os"
-
 	"github.com/njcx/packetbeat7_dpdk/cmd"
+	"github.com/njcx/packetbeat7_dpdk/threat"
+	"os"
 )
 
 var Name = "packetbeat"
 
 // Setups and Runs Packetbeat
 func main() {
+
+	threat.InitMainThread()
+
 	if err := cmd.RootCmd.Execute(); err != nil {
 		os.Exit(1)
 	}
