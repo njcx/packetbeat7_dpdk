@@ -14,7 +14,6 @@ require (
         github.com/miekg/dns v1.1.63
         github.com/njcx/gopacket_dpdk v0.0.0-20250220090539-4cfcd59a460f
         github.com/njcx/libbeat_v7 v0.0.0-20250218105906-116c1e8e4b62
-        github.com/njcx/packetbeat7_dpdk v0.0.0-20250218073859-828275f738f3
         github.com/pkg/errors v0.9.1
         github.com/samuel/go-thrift v0.0.0-20140522043831-2187045faa54
         github.com/spf13/cobra v1.9.1
