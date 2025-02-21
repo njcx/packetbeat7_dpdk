@@ -19,7 +19,7 @@ package beater
 
 import (
 	"fmt"
-	"github.com/njcx/packetbeat7_dpdk/threat"
+	"github.com/njcx/packetbeat7_dpdk/thread"
 	"runtime"
 	"sync"
 	"time"
@@ -75,7 +75,7 @@ func (p *processor) startWithDPDK() {
 	go func() {
 		defer p.wg.Done()
 
-		err := threat.ExecuteInMainThread(func() error {
+		err := thread.ExecuteInMainThread(func() error {
 			return p.sniffer.Run()
 		})
 

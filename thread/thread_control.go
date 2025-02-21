@@ -1,4 +1,4 @@
-package threat
+package thread
 
 import (
 	"runtime"
