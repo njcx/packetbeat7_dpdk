@@ -56,6 +56,8 @@ func PacketbeatSettings() instance.Settings {
 	runFlags.AddGoFlag(flag.CommandLine.Lookup("I"))
 	runFlags.AddGoFlag(flag.CommandLine.Lookup("t"))
 	runFlags.AddGoFlag(flag.CommandLine.Lookup("O"))
+	runFlags.AddGoFlag(flag.CommandLine.Lookup("dpdk_status"))
+	runFlags.AddGoFlag(flag.CommandLine.Lookup("dpdk_port"))
 	runFlags.AddGoFlag(flag.CommandLine.Lookup("l"))
 	runFlags.AddGoFlag(flag.CommandLine.Lookup("dump"))
 
@@ -71,7 +73,6 @@ func PacketbeatSettings() instance.Settings {
 // Initialize initializes the entrypoint commands for packetbeat
 func Initialize(settings instance.Settings) *cmd.BeatsRootCmd {
 	rootCmd := cmd.GenRootCmdWithSettings(beater.New, settings)
-	rootCmd.AddCommand(genDevicesCommand())
 	return rootCmd
 }
 

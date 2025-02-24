@@ -49,16 +49,20 @@ type flags struct {
 	file       *string
 	loop       *int
 	oneAtAtime *bool
+	dpdkPort   *string
+	dpdkStatus *string
 	topSpeed   *bool
 	dumpfile   *string
 }
 
-var cmdLineArgs flags
+var CmdLineArgs flags
 
 func init() {
-	cmdLineArgs = flags{
+	CmdLineArgs = flags{
 		file:       flag.String("I", "", "Read packet data from specified file"),
 		loop:       flag.Int("l", 1, "Loop file. 0 - loop forever"),
+		dpdkStatus: flag.String("dpdk_status", "", "Set dpdk status,  enable, disable or nil"),
+		dpdkPort:   flag.String("dpdk_port", "", "Set dpdk port"),
 		oneAtAtime: flag.Bool("O", false, "Read packets one at a time (press Enter)"),
 		topSpeed:   flag.Bool("t", false, "Read packets as fast as possible, without sleeping"),
 		dumpfile:   flag.String("dump", "", "Write all captured packets to this libpcap file"),
@@ -68,11 +72,11 @@ func init() {
 func initialConfig() config.Config {
 	return config.Config{
 		Interfaces: config.InterfacesConfig{
-			File:       *cmdLineArgs.file,
-			Loop:       *cmdLineArgs.loop,
-			TopSpeed:   *cmdLineArgs.topSpeed,
-			OneAtATime: *cmdLineArgs.oneAtAtime,
-			Dumpfile:   *cmdLineArgs.dumpfile,
+			File:       *CmdLineArgs.file,
+			Loop:       *CmdLineArgs.loop,
+			TopSpeed:   *CmdLineArgs.topSpeed,
+			OneAtATime: *CmdLineArgs.oneAtAtime,
+			Dumpfile:   *CmdLineArgs.dumpfile,
 		},
 	}
 }
