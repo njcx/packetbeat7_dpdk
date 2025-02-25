@@ -1,8 +1,6 @@
 packetbeat.interfaces.device: 0
 packetbeat.interfaces.snaplen: 1514
 packetbeat.interfaces.type: dpdk
-packetbeat.interfaces.dpdk_options: ["-l", "0-3", "-n", "4", "--proc-type=auto", "--file-prefix", "packetbeat7_"]
-
 packetbeat.interfaces.buffer_size_mb: 100
 
 packetbeat.flows:
@@ -47,3 +45,7 @@ processors:
   - add_docker_metadata: ~
 
 
+output.kafka:
+  enabled: true
+  hosts: ["10.22.22.22:9092"]
+  topic: beats

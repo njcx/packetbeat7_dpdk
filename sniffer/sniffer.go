@@ -148,6 +148,7 @@ func (s *Sniffer) Run() error {
 	)
 
 	handle, err := s.open()
+
 	if err != nil {
 		return fmt.Errorf("Error starting sniffer: %s", err)
 	}
@@ -182,6 +183,7 @@ func (s *Sniffer) Run() error {
 		}
 
 		data, ci, err := handle.ReadPacketData()
+
 		if err == pcap.NextErrorTimeoutExpired || err == syscall.EINTR {
 			logp.Debug("sniffer", "Interrupted")
 			continue

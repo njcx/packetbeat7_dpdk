@@ -25,10 +25,8 @@ import (
 
 var Name = "packetbeat"
 
-// Setups and Runs Packetbeat
 func main() {
 	dpdkinit.DpdkInit()
-
 	if err := cmd.RootCmd.Execute(); err != nil {
 		os.Exit(1)
 	}
